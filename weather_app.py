@@ -46,8 +46,8 @@ def get_weather():
 
 # main window
 root = tk.Tk()
-root.title("Weather App - Dark Mode with Icons")
-root.geometry("400x400")
+root.title("Weather App")
+root.geometry("350x350")
 root.config(bg="#1e1e1e")
 
 # Style settings
@@ -74,4 +74,5 @@ result_label = tk.Label(root, font=font_style, justify="left", bg="#1e1e1e", fg=
 result_label.pack(pady=20)
 
 root.mainloop()
+
 

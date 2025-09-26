@@ -1,9 +1,8 @@
 import tkinter as tk
 import requests
 from tkinter import messagebox
-from PIL import Image, ImageTk   # pip install pillow
+from PIL import Image, ImageTk
 
-# Replace with your API key
 API_KEY = "c5e9ad18b58ff0f45a317c88bd648618"
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
@@ -45,7 +44,7 @@ def get_weather():
     else:
         messagebox.showerror("Error", "City not found or API error.")
 
-# Create main window
+# main window
 root = tk.Tk()
 root.title("Weather App - Dark Mode with Icons")
 root.geometry("400x400")
@@ -75,3 +74,4 @@ result_label = tk.Label(root, font=font_style, justify="left", bg="#1e1e1e", fg=
 result_label.pack(pady=20)
 
 root.mainloop()
+

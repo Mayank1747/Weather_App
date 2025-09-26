@@ -2,8 +2,12 @@ import tkinter as tk
 import requests
 from tkinter import messagebox
 from PIL import Image, ImageTk
+import os
+from dotenv import load_dotenv
 
-API_KEY = "c5e9ad18b58ff0f45a317c88bd648618"
+# Loading .env file
+load_dotenv()
+API_KEY = os.getenv("API_KEY")  # <-- getting API key from .env
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 def get_weather():
@@ -22,13 +26,13 @@ def get_weather():
         humidity = data['main']['humidity']
         description = data['weather'][0]['main'].lower()
         
-        # Show text
+        # Shows text
         result_label.config(text=f"Weather in {city_name}\n"
                                  f"Temperature: {temperature}°C\n"
                                  f"Humidity: {humidity}%\n"
                                  f"Condition: {description.capitalize()}")
         
-        # Only check for known icons
+        # Only checks for known icons
         supported_icons = ["clear", "clouds", "rain", "snow"]
         if description in supported_icons:
             icon_file = f"icons/{description}.png"
@@ -74,5 +78,3 @@ result_label = tk.Label(root, font=font_style, justify="left", bg="#1e1e1e", fg=
 result_label.pack(pady=20)
 
 root.mainloop()
-
-
